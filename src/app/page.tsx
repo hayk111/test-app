@@ -1,5 +1,6 @@
-import { Button } from '@mui/base/Button';
-import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { Box } from '@mui/material';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -9,17 +10,16 @@ export default function Home() {
         This is the default page. You can edit this file to start building your
         app.
       </p>
-      <Button
-        type="button"
-        color="primary"
-        className="bg-green-600 rounded-md py-1 px-4"
-      >
-        Get started
-      </Button>
-      <Stack spacing={2} direction="row">
-        <Button>Button</Button>
-        <Button disabled>Disabled</Button>
-      </Stack>
+      <Box sx={{ m: 2 }}>
+        <Link href="/another">
+          <Button variant="contained">Contained</Button>
+        </Link>
+      </Box>
+      <Button variant="text">Text</Button>
+      <Button variant="outlined">Outlined</Button>
+      <div className="flex w-full justify-center">
+        <Button variant="contained">Contained</Button>
+      </div>
     </main>
   );
 }
