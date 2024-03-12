@@ -1,10 +1,10 @@
 'use client';
 
-import { useRecoilState } from 'recoil';
 import { counterState } from '../countAtom';
+import { usePersistedRecoilState } from '../usePersistedRecoilState';
 
 export default function Another() {
-  const [counter] = useRecoilState(counterState);
+  const [counter] = usePersistedRecoilState(counterState);
   return (
     <main>
       <h1>Welcome to Another!</h1>
