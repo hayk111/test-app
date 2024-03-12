@@ -4,9 +4,10 @@ import { Box } from '@mui/material';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
 import { counterState } from './countAtom';
+import { usePersistedRecoilState } from './usePersistedRecoilState';
 
 export default function Home() {
-  const [counter, setCounter] = useRecoilState(counterState);
+  const [counter, setCounter] = usePersistedRecoilState(counterState);
   return (
     <main>
       <h1>Welcome to the Next.js app!</h1>
