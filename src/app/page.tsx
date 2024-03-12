@@ -1,8 +1,12 @@
+'use client';
 import Button from '@mui/material/Button';
 import { Box } from '@mui/material';
 import Link from 'next/link';
+import { useRecoilState } from 'recoil';
+import { counterState } from './countAtom';
 
 export default function Home() {
+  const [counter, setCounter] = useRecoilState(counterState);
   return (
     <main>
       <h1>Welcome to the Next.js app!</h1>
@@ -12,13 +16,21 @@ export default function Home() {
       </p>
       <Box sx={{ m: 2 }}>
         <Link href="/another">
-          <Button variant="contained">Contained</Button>
+          <Button variant="contained">Another Page</Button>
         </Link>
       </Box>
       <Button variant="text">Text</Button>
       <Button variant="outlined">Outlined</Button>
       <div className="flex w-full justify-center">
-        <Button variant="contained">Contained</Button>
+        <Button
+          variant="contained"
+          onClick={() => setCounter((counter: number) => counter + 1)}
+        >
+          Increment Counter
+        </Button>
+        <h4>
+          Counter: <span>{counter}</span>
+        </h4>
       </div>
     </main>
   );
